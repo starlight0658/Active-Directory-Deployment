@@ -68,10 +68,10 @@ Azure virtual network: Active-Directory-VNet
 
 ## Screenshot walkthrough
 
-**50 original lab screenshots** are organized by capture time in the [`screenshots/`](screenshots/) directory. The expanded sections below retain the setup, configuration changes, troubleshooting, and final verification evidence.
+**50 original lab screenshots** are organized by capture time in the [`screenshots/`](screenshots/) directory. The screenshots below retain the setup, configuration changes, troubleshooting, and final verification evidence.
 
-<details>
-<summary><strong>Install Active Directory Domain Services</strong> — screenshots 01–08</summary>
+
+### **Install Active Directory Domain Services** — screenshots 01–08
 
 Started with the existing Azure Windows Server VM and installed the AD DS role plus the associated administration tools.
 
@@ -99,9 +99,8 @@ Started with the existing Azure Windows Server VM and installed the AD DS role p
 **08. AD DS role installation in progress**
 ![AD DS role installation in progress](screenshots/08-ad-ds-role-installation-in-progress.png)
 
-</details>
-<details>
-<summary><strong>Create and verify the new domain</strong> — screenshots 09–17</summary>
+
+### **Create and verify the new domain** — screenshots 09–17
 
 Promoted `DC-1` into the domain controller for a new `mydomain.com` forest, then verified AD DS and DNS were present. One remote login attempt failed after promotion; the later login uses the new domain administrator account.
 
@@ -132,9 +131,8 @@ Promoted `DC-1` into the domain controller for a new `mydomain.com` forest, then
 **17. Inspect the mydomain.com domain**
 ![Inspect the mydomain.com domain](screenshots/17-inspect-the-mydomain-com-domain.png)
 
-</details>
-<details>
-<summary><strong>Create OUs and a domain administrator</strong> — screenshots 18–29</summary>
+
+### **Create OUs and a domain administrator** — screenshots 18–29
 
 Used the GUI in Active Directory Users and Computers to create `_EMPLOYEES` and `_ADMINS`, create the `jane_admin` account, and validate membership in `Domain Admins`.
 
@@ -174,9 +172,8 @@ Used the GUI in Active Directory Users and Computers to create `_EMPLOYEES` and 
 **29. Confirm Jane Doe Domain Admins membership**
 ![Confirm Jane Doe Domain Admins membership](screenshots/29-confirm-jane-doe-domain-admins-membership.png)
 
-</details>
-<details>
-<summary><strong>Sign in with domain admin and join Client-1</strong> — screenshots 30–42</summary>
+
+### **Sign in with domain admin and join Client-1** — screenshots 30–42
 
 Signed into `DC-1` as the new domain admin, joined the Windows 11 client to `mydomain.com`, and restarted the workstation as required.
 
@@ -219,9 +216,8 @@ Signed into `DC-1` as the new domain admin, joined the Windows 11 client to `myd
 **42. RDP disconnect during Client-1 restart**
 ![RDP disconnect during Client-1 restart](screenshots/42-rdp-disconnect-during-client-1-restart.png)
 
-</details>
-<details>
-<summary><strong>Verify Client-1 and organize computer objects</strong> — screenshots 43–50</summary>
+
+### **Verify Client-1 and organize computer objects** — screenshots 43–50
 
 Confirmed the domain-joined computer object and created `_CLIENTS`, then moved `Client-1` into that OU.
 
@@ -249,7 +245,6 @@ Confirmed the domain-joined computer object and created `_CLIENTS`, then moved `
 **50. Final Active Directory OU and container overview**
 ![Final Active Directory OU and container overview](screenshots/50-final-active-directory-ou-and-container-overview.png)
 
-</details>
 ## Lessons and security considerations
 
 - **Troubleshooting:** Domain controller promotion generated installation warnings about adapter IP configuration and DNS delegation. The lab proceeded to a working domain; in production, DNS configuration and any delegation requirements must be evaluated for the actual environment.
